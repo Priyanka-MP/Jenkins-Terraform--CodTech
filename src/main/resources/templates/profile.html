@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Profile</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 th:text="${profile.name}">Name</h1>
+    <p>Email: <span th:text="${profile.email}">Email</span></p>
+    <p>Bio: <span th:text="${profile.bio}">Bio</span></p>
+    <a th:href="${profile.linkedinUrl}">LinkedIn</a>
+</div>
+</body>
+</html>
