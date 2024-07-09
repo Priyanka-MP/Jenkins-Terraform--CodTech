@@ -10,9 +10,8 @@ Duration : July 5th - August 5th
 
 Mentor   : MUZAMMIL AHMED
 
-Task     : TASK ONE
 
-CI/CD PIPELINE WITH JENKINS
+Task     : TASK ONE -CI/CD PIPELINE WITH JENKINS
 
 Set up a continuous integration/continuous deployment (CI/CD) pipeline using Jenkins to automate the build, test, and deployment processes. Install and configure Jenkins. Create a Jenkins pipeline to build, test, and deploy a simple application.
 
