@@ -13,6 +13,11 @@ public class ProfileController {
     @Autowired
     private ProfileService profileService;
 
+    @GetMapping("/")
+    public String home() {
+        return "index"; // This should be a valid view name, e.g., index.html in src/main/resources/templates
+    }
+
     @GetMapping("/{id}")
     public String getProfile(@PathVariable Long id, Model model) {
         Profile profile = profileService.getProfile(id);
