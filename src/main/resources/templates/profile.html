@@ -6,10 +6,12 @@
 </head>
 <body>
 <div class="container">
-    <h1 th:text="${profile.name}">Name</h1>
-    <p>Email: <span th:text="${profile.email}">Email</span></p>
-    <p>Bio: <span th:text="${profile.bio}">Bio</span></p>
-    <a th:href="${profile.linkedinUrl}">LinkedIn</a>
+    <h1>Profile Details</h1>
+    <p><strong>Name:</strong> <span th:text="${profile.name}"></span></p>
+    <p><strong>Email:</strong> <span th:text="${profile.email}"></span></p>
+    <p><strong>Bio:</strong> <span th:text="${profile.bio}"></span></p>
+    <p><strong>LinkedIn:</strong> <a th:href="${profile.linkedinUrl}" th:text="${profile.linkedinUrl}"></a></p>
 </div>
 </body>
 </html>
+

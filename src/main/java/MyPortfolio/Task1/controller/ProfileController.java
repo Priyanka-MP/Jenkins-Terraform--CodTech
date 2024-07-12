@@ -7,33 +7,37 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
-@RequestMapping("/profile")
 public class ProfileController {
+
     @Autowired
     private ProfileService profileService;
 
-    @GetMapping("/")
-    public String home() {
-        return "index"; // This should be a valid view name, e.g., index.html in src/main/resources/templates
-    }
-
-    @GetMapping("/{id}")
-    public String getProfile(@PathVariable Long id, Model model) {
-        Profile profile = profileService.getProfile(id);
-        model.addAttribute("profile", profile);
-        return "profile";
-    }
-
-    @GetMapping("/new")
-    public String newProfileForm(Model model) {
+    @GetMapping("/profileForm")
+    public String showProfileForm(Model model) {
         model.addAttribute("profile", new Profile());
         return "profileForm";
     }
 
-    @PostMapping
+    @PostMapping("/profile")
     public String createProfile(@ModelAttribute Profile profile) {
         profileService.saveProfile(profile);
-        return "redirect:/profile/" + profile.getId();
+        return "redirect:/profile/all";
+    }
+
+    @GetMapping("/profile/all")
+    public String getAllProfiles(Model model) {
+        List<Profile> profiles = profileService.getAllProfiles();
+        model.addAttribute("profiles", profiles);
+        return "profiles";
+    }
+
+    @GetMapping("/profile/{id}")
+    public String getProfile(@PathVariable Long id, Model model) {
+        Profile profile = profileService.getProfile(id);
+        model.addAttribute("profile", profile);
+        return "profile";
     }
 }
