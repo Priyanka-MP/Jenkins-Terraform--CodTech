@@ -1,0 +1,56 @@
+pipeline {
+    agent any
+
+    tools {
+        gradle 'Gradle'  // Use the Gradle version you have configured in Jenkins
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Get code from your Git repository
+                git 'https://github.com/Priyanka-MP/CODTECH-TASK1'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                // Run Gradle build
+                sh './gradlew clean build'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                // Run tests
+                sh './gradlew test'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                // Deploy your application
+                withCredentials([sshUserPrivateKey(credentialsId: 'deploy-key', keyFileVariable: 'SSH_KEY')]) {
+                    sh '''
+                    scp -i $SSH_KEY build/libs/myapp-1.0.0.jar priyanka@192.168.1.100:/home/priyanka/app/
+                    '''
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            // Clean up or notify after pipeline execution
+            junit 'build/test-results/test/*.xml'
+        }
+        success {
+            // Notify on success
+            echo 'Pipeline succeeded!'
+        }
+        failure {
+            // Notify on failure
+            echo 'Pipeline failed!'
+        }
+    }
+}
