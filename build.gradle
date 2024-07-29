@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-		springBootVersion = '2.5.6' // Example version compatible with Gradle 7.3 and JDK 17
+		springBootVersion = '2.5.6'
 	}
 	repositories {
 		mavenCentral()
@@ -29,6 +29,15 @@ dependencies {
 	implementation 'mysql:mysql-connector-java'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+bootJar {
+	mainClassName = 'Task1Application'
+}
+
+task main(type: JavaExec) {
+	classpath = sourceSets.main.runtimeClasspath
+	main = 'Task1Application'
 }
 
 test {

@@ -2,62 +2,56 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradient background */
-            color: #ffffff; /* Default color for text */
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 30px;
-            color: #ffffff; /* Custom color for h1 */
-            margin-bottom: 20px;
-        }
-
-        h2 {
-            font-size: 36px;
-            margin: 20px 0;
-            color: #ffffff; /* Custom color for h2 */
-        }
-
-        h3 {
-            font-size: 28px;
-            margin: 20px 0;
-            color: #ffffff; /* Custom color for h3 */
-        }
-
-        a {
-            display: block;
-            width: 100px;
-            margin: 20px auto;
-            padding: 10px;
-            text-align: center;
-            text-decoration: none;
-            color: #ffffff;
-            background-color: #007bff;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        a:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priyanka K - Portfolio</title>
+    <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
-<h1>Work Hard and be smart !! If we have to achieve more than we have to work more. When you become more, you achieve by doing less :-)</h1>
-<h2>Hello dudes! This is Priyanka, a Computer Science engineering graduate</h2>
-<h3>DevOps Enthusiast | Passion for Automation work </h3>
-<a href="/profile/all">View All Profiles</a>
+<header>
+    <div class="container">
+        <h1>Priyanka K</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section id="about" class="background">
+    <div class="container">
+        <h2>About Me</h2>
+        <p>Hello, I'm Priyanka K, a Java Developer with 3 years of experience, currently transitioning into DevOps. I have expertise in CI/CD pipelines, Kubernetes containerization, and more.</p>
+        <a href="https://www.linkedin.com/in/priyanka2703/" target="_blank">Connect with me on LinkedIn</a>
+    </div>
+</section>
+
+<section id="projects">
+    <div class="container">
+        <h2>Projects</h2>
+        <ul>
+            <li>Project 1: Description</li>
+            <li>Project 2: Description</li>
+            <li>Project 3: Description</li>
+        </ul>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="container">
+        <h2>Contact</h2>
+        <p>You can reach me at: priyanka@example.com</p>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2024 Priyanka K. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="/static/script.js"></script>
 </body>
 </html>
