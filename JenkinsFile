@@ -1,45 +1,84 @@
 pipeline {
     agent any
     environment {
-        AWS_ACCESS_KEY_ID = credentials('aws-credentials')
-        AWS_SECRET_ACCESS_KEY = credentials('aws-credentials')
+        AWS_ACCESS_KEY_ID = credentials('your-aws-credentials-id')
+        AWS_SECRET_ACCESS_KEY = credentials('your-aws-credentials-id')
     }
-
     stages {
+        stage('Checkout SCM') {
+            steps {
+                checkout scm
+            }
+        }
         stage('Clone') {
             steps {
-               git credentialsId: 'github-path', url: 'https://github.com/Priyanka-MP/CODTECH-TASK1.git'
+                git url: 'https://github.com/Priyanka-MP/CODTECH-TASK1.git', branch: 'master', credentialsId: 'github-pat'
             }
         }
         stage('Build') {
             steps {
-                sh 'mvn clean package'
+                script {
+                    if (isUnix()) {
+                        sh 'gradle build'
+                    } else {
+                        bat 'gradle build'
+                    }
+                }
             }
         }
         stage('Test') {
             steps {
-                sh 'mvn test'
+                script {
+                    if (isUnix()) {
+                        sh 'gradle test'
+                    } else {
+                        bat 'gradle test'
+                    }
+                }
             }
         }
         stage('Deploy') {
             steps {
-                sh './gradlew bootRun'
+                script {
+                    if (isUnix()) {
+                        sh 'gradle deploy'
+                    } else {
+                        bat 'gradle deploy'
+                    }
+                }
             }
         }
         stage('Test AWS Credentials') {
             steps {
-                sh 'aws s3 ls'
+                script {
+                    if (isUnix()) {
+                        sh 'aws sts get-caller-identity'
+                    } else {
+                        bat 'aws sts get-caller-identity'
+                    }
+                }
             }
         }
-
         stage('Terraform Init') {
             steps {
-                sh 'cd terraform && terraform init'
+                script {
+                    if (isUnix()) {
+                        sh 'terraform init'
+                    } else {
+                        bat 'terraform init'
+                    }
+                }
             }
         }
         stage('Terraform Apply') {
             steps {
-                sh 'cd terraform && terraform apply -auto-approve'
+                script {
+                    if (isUnix()) {
+                        sh 'terraform apply -auto-approve'
+                    } else {
+                        bat 'terraform apply -auto-approve'
+                    }
+                }
             }
         }
     }
