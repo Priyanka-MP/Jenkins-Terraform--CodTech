@@ -33,5 +33,16 @@ out/
 /nbdist/
 /.nb-gradle/
 
+# Ignore Terraform lock file
+terraform/.terraform.lock.hcl
+
+# Ignore Terraform configuration directory
+terraform/.terraform/
+
+# Ignore Terraform state files
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
+
+
 ### VS Code ###
 .vscode/
