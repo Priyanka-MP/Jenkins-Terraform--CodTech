@@ -1,9 +1,9 @@
 pipeline {
     agent any
     environment {
-            AWS_ACCESS_KEY_ID = credentials('aws-access-key-id')
-            AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
-        }
+        AWS_ACCESS_KEY_ID = credentials('aws-credentials')
+        AWS_SECRET_ACCESS_KEY = credentials('aws-credentials')
+    }
 
     stages {
         stage('Clone') {
@@ -23,19 +23,24 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'mvn spring-boot:run'
+                sh './gradlew bootRun'
             }
+        }
+        stage('Test AWS Credentials') {
+            steps {
+                sh 'aws s3 ls'
             }
-            stage('Terraform Init') {
-                        steps {
-                            sh 'cd terraform && terraform init'
-                        }
-                    }
-                    stage('Terraform Apply') {
-                        steps {
-                            sh 'cd terraform && terraform apply -auto-approve'
-                        }
-                    }
+        }
 
+        stage('Terraform Init') {
+            steps {
+                sh 'cd terraform && terraform init'
+            }
+        }
+        stage('Terraform Apply') {
+            steps {
+                sh 'cd terraform && terraform apply -auto-approve'
+            }
+        }
     }
 }
