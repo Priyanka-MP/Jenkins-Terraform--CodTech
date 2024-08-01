@@ -19,14 +19,22 @@ OVERVIEW OF THE PROJECT.
 
 Project : Web Application Portfolio using Java,SpringBoot,Gradle & Jenkins
 
-Objective :
+Objective : 
 
-Key Activities :
+To create a CI CD pipeline using Jenkins to automate buid ,test and deploy process for my web application -portfolio.
 
-Tools used :
+Key Activities : 
 
-Summary :
+Necessary requirements gathered , Backend development , Set up CI CD pipeline by writing a jenkins file using scripted pipelines
 
-Features :
+Tools used : 
 
-Conclusion :
+Java , SpringBoot , Gradle , Jenkins ,Github
+
+Features : 
+
+Automated builds, Automated testing, Automated deployment 
+
+Outcome:
+
+The project successfully demonstrated setting up a ci/cd pipeline using jenkins, automating the build, test and deployment processes. This ensures that code changes are integrated continuously, tested thoroughly and deployed automatically , streamlining the development workflow and enhancing code quality.
