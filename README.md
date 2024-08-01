@@ -21,7 +21,7 @@ Project : Web Application Portfolio using Java,SpringBoot,Gradle & Jenkins
 
 Objective : 
 
-To create a CI CD pipeline using Jenkins to automate buid ,test and deploy process for my web application -portfolio.
+To create a CI CD pipeline using Jenkins to automate build ,test and deploy process for my web application -portfolio.
 
 Key Activities : 
 
