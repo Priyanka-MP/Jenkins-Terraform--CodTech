@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Clone') {
             steps {
-                git url: 'https://github.com/Priyanka-MP/CODTECH-TASK1.git', branch: 'master', credentialsId: 'github-pat'
+                git url: 'https://github.com/Priyanka-MP/CODTECH-TASK1.git', branch: 'master', credentialsId: 'aws-credentials'
             }
         }
         stage('Build') {
