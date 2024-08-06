@@ -1,0 +1,21 @@
+Summary of Steps and Outputs:
+
+Checkout SCM: Successfully checked out the source code from GitHub.
+
+Clone Repository: Cloned the repository from GitHub using the provided credentials.
+
+Build: Successfully built the Java application using Gradle.
+
+Test: Successfully ran tests on the Java application using Gradle.
+
+Deploy: Successfully deployed the Java application (if required).
+
+Test AWS Credentials: Verified AWS credentials by retrieving caller identity.
+
+Terraform Init: Initialized Terraform and downloaded necessary plugins.
+
+Terraform Apply: Applied the Terraform configuration to provision AWS resources.
+
+Final Outcome
+The pipeline executed successfully, automating the build, test, and deployment processes for the Java application and provisioning the necessary infrastructure on AWS using Terraform. 
+The successful outputs at each stage confirm that the setup is correct and functioning as intended.
